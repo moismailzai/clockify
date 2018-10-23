@@ -1,4 +1,5 @@
 <?php
+namespace MoIsmailzai
 
 class Clockify
 {
