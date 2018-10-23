@@ -1,0 +1,18 @@
+{
+  "name": "Clockify",
+  "description": "A short description of what your package does",
+  "version": "0.1.0",
+  "keywords": ["clockify"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mo Ismailzai",
+      "email": "moismailzai@gmail.com",
+      "homepage": "https://www.moismailzai.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.0"
+  }
+}
