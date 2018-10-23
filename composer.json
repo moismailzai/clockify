@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "keywords": ["clockify"],
   "license": "MIT",
+  "autoload": {
+      "psr-0": {"Clockify": "src/"}
+  },
   "authors": [
     {
       "name": "Mo Ismailzai",
