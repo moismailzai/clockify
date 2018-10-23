@@ -1,6 +1,6 @@
 {
   "name": "moismailzai/clockify",
-  "description": "A short description of what your package does",
+  "description": "Rough PHP bindings for the Clockify API. The main reason I built this is because none of Clockify's built-in reports allow time entries with duplicate titles to be aggregated.",
   "version": "0.1.0",
   "keywords": ["clockify"],
   "license": "MIT",
