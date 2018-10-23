@@ -6,7 +6,7 @@ Rough PHP bindings for the Clockify API. The main reason I built this is because
 Install via Composer
 
 ```
-composer require moismailzai/clockify
+composer require moismailzai/clockify dev-master
 ```
 
 Or just include ```Clockify.php``` in your project.
