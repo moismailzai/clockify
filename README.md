@@ -9,7 +9,13 @@ Install via Composer
 composer require moismailzai/clockify dev-master
 ```
 
-Or just include ```Clockify.php``` in your project.
+Then include it in your PHP code:
+
+```
+require_once './vendor/autoload.php';
+
+use MoIsmailzai\Clockify;
+```
 
 ## Usage
 
