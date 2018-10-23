@@ -1,6 +1,8 @@
 <?php
 namespace MoIsmailzai;
 
+use DateInterval;
+
 /**
  * Copied almost verbatim from https://gist.github.com/hakre/3142405 (see http://stackoverflow.com/q/11556731/367456)
  */

@@ -1,6 +1,8 @@
 <?php
 namespace MoIsmailzai;
 
+use DateInterval;
+
 class Clockify
 {
 
@@ -123,7 +125,7 @@ class Clockify
                 return $e;
             }
 
-            if ( $entry[ 'total' ] ) {
+            if ( array_key_exists( 'total', $entry ) ) {
 
                 try {
                     $previousTotalDuration = new DateInterval( $entry[ 'total' ] );
