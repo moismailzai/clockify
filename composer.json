@@ -5,7 +5,7 @@
   "keywords": ["clockify"],
   "license": "MIT",
   "autoload": {
-      "psr-0": {"Clockify": "src/"}
+      "psr-4": {"MoIsmailzai\\": "src/"}
   },
   "authors": [
     {
