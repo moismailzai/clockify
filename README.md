@@ -1,5 +1,5 @@
 ## Summary
-Rough PHP bindings for the Clockify API. The main reason I built this is because none of Clockify's built-in reports allow time entries with duplicate titles to be aggregated. 
+Rough PHP bindings for the Clockify API. The main reason this was built is that Clockify's built-in reports don't time entries that have duplicate titles to be aggregated. 
 
 ## Installation
 
