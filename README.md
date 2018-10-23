@@ -3,7 +3,7 @@ Rough PHP bindings for the Clockify API. The main reason I built this is because
 
 ## Installation
 
-Install via Composer
+Install via Composer:
 
 ```
 composer require moismailzai/clockify dev-master
@@ -19,7 +19,7 @@ use MoIsmailzai\Clockify;
 
 ## Usage
 
-Use by creating a new Clockify object with your API key and the workspace you want to make reports for.
+Use by creating a new Clockify object with your API key and the workspace you want to make reports for:
 
 ```
 $clockify = new Clockify( "<< YOUR API KEY >>", "<< YOUR WORKSPACE NAME >>" );
