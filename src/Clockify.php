@@ -86,7 +86,7 @@ class Clockify
         }
 
         try {
-            $report[ 'total' ] = new DateInterval( $result->totalTime );
+            $report[ 'total' ] = new DateInterval( $this->cleanDateInterval( $result->totalTime ) );
         } catch ( Exception $e ) {
             return $e;
         }
@@ -98,7 +98,7 @@ class Clockify
         foreach ( $result->projectAndTotalTime as $project ) {
 
             try {
-                $time = new DateInterval( $project-> duration );
+                $time = new DateInterval( $this->cleanDateInterval( $project-> duration ) );
             } catch ( Exception $e ) {
                 return $e;
             }
@@ -120,7 +120,7 @@ class Clockify
             array_push( $entry[ 'intervals' ], $timeEntry->timeInterval );
 
             try {
-                $timeEntryDuration = ClockifyDateInterval::fromDateInterval( new DateInterval( $timeEntry->timeInterval->duration ) );
+                $timeEntryDuration = ClockifyDateInterval::fromDateInterval( new DateInterval( $this->cleanDateInterval( $timeEntry->timeInterval->duration ) ) );
             } catch ( Exception $e ) {
                 return $e;
             }
@@ -128,7 +128,7 @@ class Clockify
             if ( array_key_exists( 'total', $entry ) ) {
 
                 try {
-                    $previousTotalDuration = new DateInterval( $entry[ 'total' ] );
+                    $previousTotalDuration = new DateInterval( $this->cleanDateInterval( $entry[ 'total' ] ) );
                 } catch ( Exception $e ) {
                     return $e;
                 }
@@ -143,6 +143,18 @@ class Clockify
         }
 
         return $report;
+    }
+
+    public function cleanDateInterval( $dateInterval )
+    {
+        // because PHP is broken: https://bugs.php.net/bug.php?id=53831
+        $fixed = explode( ".", $dateInterval );
+        if ( $dateInterval[1] ) {
+            $fixed = $fixed[0] . substr($fixed[1], -1);
+        } else {
+            $fixed = $fixed[0];
+        }
+        return $fixed;
     }
 
     public function formatReport( $report )
