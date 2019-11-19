@@ -15,27 +15,27 @@ class Clockify
      * @param String $apiKey clockify API key (see https://clockify.github.io/clockify_api_docs/)
      * @param String $workspace clockify API key (see https://clockify.github.io/clockify_api_docs/#tag-Workspace)
      * @param String $apiEndpoint you shouldn't have to change this
-     * @throws Exception if $apiKey or $workspace are not provided, or an invalid $apiEndpoint is specified
+     * @throws \Exception if $apiKey or $workspace are not provided, or an invalid $apiEndpoint is specified
      * @returns Clockify
      */
     public function __construct( $apiKey, $workspace, $apiEndpoint = "https://api.clockify.me/api/" )
     {
 
         if ( !$apiKey ) {
-            throw new Exception( 'You must provide an API key.' );
+            throw new \Exception( 'You must provide an API key.' );
         } else {
             $this->apiKey = $apiKey;
         }
 
         if ( !filter_var( $apiEndpoint, FILTER_VALIDATE_URL ) ) {
-            throw new Exception('You must provide a valid API endpoint.');
+            throw new \Exception('You must provide a valid API endpoint.');
         } else {
             $this->apiEndpoint = $apiEndpoint;
         }
 
         try {
             $clockfiyWorkspaces = $this->apiRequest( 'workspaces/' );
-        } catch( Exception $e ) {
+        } catch( \Exception $e ) {
             return $e;
         }
 
@@ -48,7 +48,7 @@ class Clockify
         }
 
         if ( !$this->workspaceId ) {
-            throw new Exception( 'You must provide a valid workspace.' );
+            throw new \Exception( 'You must provide a valid workspace.' );
         }
 
         return $this;
@@ -81,13 +81,13 @@ class Clockify
                     ) )
                 )
             );
-        } catch( Exception $e ) {
+        } catch( \Exception $e ) {
             return $e;
         }
 
         try {
             $report[ 'total' ] = new DateInterval( $this->cleanDateInterval( $result->totalTime ) );
-        } catch ( Exception $e ) {
+        } catch ( \Exception $e ) {
             return $e;
         }
 
@@ -99,7 +99,7 @@ class Clockify
 
             try {
                 $time = new DateInterval( $this->cleanDateInterval( $project-> duration ) );
-            } catch ( Exception $e ) {
+            } catch ( \Exception $e ) {
                 return $e;
             }
 
@@ -121,7 +121,7 @@ class Clockify
 
             try {
                 $timeEntryDuration = ClockifyDateInterval::fromDateInterval( new DateInterval( $this->cleanDateInterval( $timeEntry->timeInterval->duration ) ) );
-            } catch ( Exception $e ) {
+            } catch ( \Exception $e ) {
                 return $e;
             }
 
@@ -129,7 +129,7 @@ class Clockify
 
                 try {
                     $previousTotalDuration = new DateInterval( $this->cleanDateInterval( $entry[ 'total' ] ) );
-                } catch ( Exception $e ) {
+                } catch ( \Exception $e ) {
                     return $e;
                 }
 
