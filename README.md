@@ -1,3 +1,6 @@
+# UNMAINTAINED
+Checkout https://github.com/jdecool/clockify-api instead.
+
 ## Summary
 Rough PHP bindings for the Clockify API. Built because Clockify's web reports don't aggregate time entries with duplicate titles. 
 
