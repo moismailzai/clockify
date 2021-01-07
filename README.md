@@ -14,7 +14,7 @@ composer require moismailzai/clockify dev-master
 
 Then include it in your PHP code:
 
-```
+```php
 require_once './vendor/autoload.php';
 
 use MoIsmailzai\Clockify;
@@ -24,7 +24,7 @@ use MoIsmailzai\Clockify;
 
 Use by creating a new Clockify object with your API key and the workspace you want to make reports for:
 
-```
+```php
 $clockify = new Clockify( "<< YOUR API KEY >>", "<< YOUR WORKSPACE NAME >>" );
 ```
 
@@ -32,13 +32,13 @@ $clockify = new Clockify( "<< YOUR API KEY >>", "<< YOUR WORKSPACE NAME >>" );
 
 To use this as a PHP wrapper for the API, just pass in the API path to the ```apiRequest``` method:
 
-```
+```php
 $clockify->apiRequest( 'workspaces/' . $clockify->workspaceId . '/projects/' )
 ```
 
 You can also make POST requests by including a JSON-encoded payload:
 
-```
+```php
 $clockify->apiRequest( 'workspaces/' . $clockify->workspaceId . '/reports/summary/',
     json_encode( array(
         "archived" => "Active",
@@ -64,13 +64,13 @@ $clockify->apiRequest( 'workspaces/' . $clockify->workspaceId . '/reports/summar
 ### Generating daily reports
 To generate a daily report, pass in a date to the ```getReportByDay``` method:
 
-```
+```php
 $report = $clockify->getReportByDay( '2018-10-01' );
 ```
 
 Which will return an object like:
 
-```
+```php
 array(3) {
   ["total"]=>
   string(31) "0 hours, 12 minutes, 38 seconds"
@@ -111,7 +111,7 @@ array(3) {
 
 And you can format it yourself or pass the result to the built-in formatter:
 
-```
+```php
 $clockify->formatReport( $report )
 ```
 
